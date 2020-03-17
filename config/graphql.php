@@ -2,10 +2,13 @@
 
 declare(strict_types=1);
 
+use WebsiteAdmin\GraphQL\Mutations\NoticiaCategoria\DeleteNoticiaCategoriaMutation;
+use WebsiteAdmin\GraphQL\Mutations\NoticiaCategoria\CreateNoticiaCategoriaMutation;
+use WebsiteAdmin\GraphQL\Mutations\NoticiaCategoria\UpdateNoticiaCategoriaMutation;
+use WebsiteAdmin\GraphQL\Mutations\Noticias\CreateNoticiasMutation;
 use WebsiteAdmin\GraphQL\Queries\AccountQuery;
 use WebsiteAdmin\GraphQL\Queries\NoticiaCategoriaQuery;
 use WebsiteAdmin\GraphQL\Queries\NoticiasQuery;
-use WebsiteAdmin\GraphQL\Queries\TesteQuery;
 use WebsiteAdmin\GraphQL\Scalars\Date;
 use WebsiteAdmin\GraphQL\Types\AccountType;
 use WebsiteAdmin\GraphQL\Types\NoticiaCategoriaType;
@@ -110,10 +113,13 @@ return [
                 'accounts'                  => AccountQuery::class,
             ],
             'mutation' => [
-                // 'example_mutation'  => ExampleMutation::class,
+                'create_categoria'  => CreateNoticiaCategoriaMutation::class,
+                'update_categoria'  => UpdateNoticiaCategoriaMutation::class,
+                'delete_categoria'  => DeleteNoticiaCategoriaMutation::class,
+                'create_noticia'    => CreateNoticiasMutation::class,
             ],
             'middleware' => [],
-            'method' => ['get', 'post'],
+            'method' => ['get', 'post', 'put', 'delete'],
         ],
     ],
 

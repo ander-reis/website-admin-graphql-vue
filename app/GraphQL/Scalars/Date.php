@@ -35,7 +35,8 @@ class Date extends ScalarType implements TypeConvertible
      */
     public function serialize($value)
     {
-        return Carbon::parse($value)->format('d/m/Y H:i:s');
+        return Carbon::parse($value)->format('Y-m-d H:i:s');
+//        return Carbon::parse($value)->format('d/m/Y H:i:s');
 //        return Carbon::createFromFormat('d/m/Y H:i:s');
     }
 
@@ -52,8 +53,9 @@ class Date extends ScalarType implements TypeConvertible
      */
     public function parseValue($value)
     {
+        return Carbon::parse($value)->format('Y-m-d H:i:s');
 //        return Carbon::parse($value)->format('d/m/Y H:i:s');
-        return Carbon::createFromFormat('d/m/Y H:i:s');
+//        return Carbon::createFromFormat('d/m/Y H:i:s');
     }
 
     /**
@@ -70,8 +72,9 @@ class Date extends ScalarType implements TypeConvertible
      */
     public function parseLiteral($valueNode, ?array $variables = null)
     {
-//        return Carbon::parse($valueNode->value)->format('d/m/Y H:i:s');
-        return Carbon::createFromFormat('d/m/Y H:i:s');
+        return Carbon::parse($valueNode->value)->format('Y-m-d H:i:s');
+//        return Carbon::parse($valueNode->value)->format('Y/m/d H:i:s');
+//        return Carbon::createFromFormat('d/m/Y H:i:s');
     }
 
     public function toType(): Type

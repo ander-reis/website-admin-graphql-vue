@@ -25,7 +25,8 @@ class NoticiaCategoriaType extends GraphQLType
             ],
             'ds_categoria' => [
                 'type' => Type::string(),
-                'description' => 'descrição da categoria'
+                'description' => 'descrição da categoria',
+                'rules' => ['required']
             ],
         ];
     }
