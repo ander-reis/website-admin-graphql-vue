@@ -1,0 +1,6 @@
+mutation UpdateNoticiaCategoria ($id: ID!, $ds_categoria: String!){
+    update_categoria (id: $id, ds_categoria: $ds_categoria) {
+        id
+        ds_categoria
+    }
+}

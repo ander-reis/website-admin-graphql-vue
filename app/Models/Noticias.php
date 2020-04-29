@@ -31,9 +31,17 @@ class Noticias extends Model
      */
     const UPDATED_AT = 'dt_alteracao';
 
-    protected $dates = ['dt_cadastro', 'dt_alteracao'];
+//    protected $dates = ['dt_noticia', 'dt_cadastro', 'dt_alteracao'];
+//    protected $dates = ['dt_noticia'];
 
-    protected $dateFormat = 'Y-m-d H:i:s+';
+    protected $dateFormat = 'Y-m-d H:i:s.u';
+
+    protected $casts = [
+//        'dt_cadastro' => 'date:Y-m-d',
+//        'dt_noticia' => 'datetime:Y-m-d H:i:s',
+//        'dt_cadastro' => 'datetime:Y-m-d H:i:s',
+//        'dt_alteracao' => 'datetime:Y-m-d H:i:s',
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -51,7 +59,6 @@ class Noticias extends Model
         'ds_palavra_chave',
         'ds_social',
         'fl_status',
-        'fl_oculta',
     ];
 
     /**
@@ -83,30 +90,9 @@ class Noticias extends Model
      */
 //    protected static $logName = 'noticias';
 
-    /**
-     * Mutators formata data para o form de edição -> 2000-12-30
-     *
-     * @return string
-     * @throws \Exception
-     */
-    public function getDtNoticiaUTCFormattedAttribute()
+    public static function convertDsPalavraChave($string)
     {
-        return \Carbon\Carbon::parse($this->dt_noticia);
-    }
-
-    public function getDtNoticiaFormattedAttribute()
-    {
-        return \Carbon\Carbon::parse($this->dt_noticia)->format('d/m/Y');
-    }
-
-    /**
-     * Mutators formata hr_expira -> 12:00
-     *
-     * @return bool|string
-     */
-    public function getHrNoticiaFormattedAttribute()
-    {
-        return \Carbon\Carbon::parse($this->dt_noticia)->format('H:i');
+        return implode(', ', $string);
     }
 
     /**

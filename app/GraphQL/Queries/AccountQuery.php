@@ -19,6 +19,12 @@ class AccountQuery extends Query
         'description' => 'A query'
     ];
 
+//    public function authorize($root, array $args, $ctx, ResolveInfo $resolveInfo = null, Closure $getSelectFields = null): bool
+//    {
+//        $user = \JWTAuth::parseToken()->toUser();
+//        return $user ? true : false;
+//    }
+
     public function type(): Type
     {
         return Type::listOf(GraphQL::type('Accounts'));
@@ -26,9 +32,8 @@ class AccountQuery extends Query
 
     public function args(): array
     {
-        return [
-
-        ];
+//         return Type::nonNull(Type::listOf(Type::nonNull(GraphQL::type('accounts'))));
+        return [];
     }
 
     public function resolve($root, $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)

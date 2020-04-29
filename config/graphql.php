@@ -2,17 +2,22 @@
 
 declare(strict_types=1);
 
+use WebsiteAdmin\GraphQL\Mutations\LoginMutation;
 use WebsiteAdmin\GraphQL\Mutations\NoticiaCategoria\DeleteNoticiaCategoriaMutation;
 use WebsiteAdmin\GraphQL\Mutations\NoticiaCategoria\CreateNoticiaCategoriaMutation;
 use WebsiteAdmin\GraphQL\Mutations\NoticiaCategoria\UpdateNoticiaCategoriaMutation;
 use WebsiteAdmin\GraphQL\Mutations\Noticias\CreateNoticiasMutation;
+use WebsiteAdmin\GraphQL\Mutations\Noticias\UpdateNoticiasMutation;
 use WebsiteAdmin\GraphQL\Queries\AccountQuery;
 use WebsiteAdmin\GraphQL\Queries\NoticiaCategoriaQuery;
 use WebsiteAdmin\GraphQL\Queries\NoticiasQuery;
+use WebsiteAdmin\GraphQL\Queries\UserQuery;
 use WebsiteAdmin\GraphQL\Scalars\Date;
 use WebsiteAdmin\GraphQL\Types\AccountType;
+use WebsiteAdmin\GraphQL\Types\LoginType;
 use WebsiteAdmin\GraphQL\Types\NoticiaCategoriaType;
 use WebsiteAdmin\GraphQL\Types\NoticiasType;
+use WebsiteAdmin\GraphQL\Types\UserType;
 
 return [
 
@@ -111,12 +116,15 @@ return [
                 'noticias'                  => NoticiasQuery::class,
                 'noticia_categoria'         => NoticiaCategoriaQuery::class,
                 'accounts'                  => AccountQuery::class,
+                'user'                      => UserQuery::class,
             ],
             'mutation' => [
-                'create_categoria'  => CreateNoticiaCategoriaMutation::class,
-                'update_categoria'  => UpdateNoticiaCategoriaMutation::class,
-                'delete_categoria'  => DeleteNoticiaCategoriaMutation::class,
-                'create_noticia'    => CreateNoticiasMutation::class,
+                'login'                     => LoginMutation::class,
+                'create_categoria'          => CreateNoticiaCategoriaMutation::class,
+                'update_categoria'          => UpdateNoticiaCategoriaMutation::class,
+                'delete_categoria'          => DeleteNoticiaCategoriaMutation::class,
+                'create_noticia'            => CreateNoticiasMutation::class,
+                'update_noticia'            => UpdateNoticiasMutation::class,
             ],
             'middleware' => [],
             'method' => ['get', 'post', 'put', 'delete'],
@@ -133,10 +141,13 @@ return [
     // ]
     //
     'types' => [
+        'login'                             => LoginType::class,
+        'user'                              => UserType::class,
         'NoticiasType'                      => NoticiasType::class,
         'NoticiasCategoriaType'             => NoticiaCategoriaType::class,
         'Accounts'                          => AccountType::class,
         'date'                              => Date::class,
+
         // 'example'           => ExampleType::class,
         // 'relation_example'  => ExampleRelationType::class,
         // \Rebing\GraphQL\Support\UploadType::class,

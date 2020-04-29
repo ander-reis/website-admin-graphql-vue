@@ -19,6 +19,12 @@ class NoticiaCategoriaQuery extends Query
         'description' => 'select NoticiaCategoria'
     ];
 
+    public function authorize($root, array $args, $ctx, ResolveInfo $resolveInfo = null, Closure $getSelectFields = null): bool
+    {
+        $user = \JWTAuth::parseToken()->toUser();
+        return $user ? true : false;
+    }
+
     public function type(): Type
     {
         return Type::listOf(GraphQL::type('NoticiasCategoriaType'));

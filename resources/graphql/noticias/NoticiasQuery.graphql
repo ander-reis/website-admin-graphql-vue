@@ -1,0 +1,17 @@
+query Noticias ($id: ID) {
+    noticias (id: $id) {
+        id
+        ds_resumo
+        ds_texto
+        ds_palavra_chave
+        ds_social
+        fl_status
+        dt_noticia
+        dt_cadastro
+        dt_alteracao
+        categoria {
+            id
+            ds_categoria
+        }
+    }
+}

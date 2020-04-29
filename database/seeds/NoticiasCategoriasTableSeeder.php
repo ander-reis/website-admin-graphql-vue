@@ -31,52 +31,52 @@ class NoticiasCategoriasTableSeeder extends Seeder
             'ds_categoria' => 'Convênios'
         ]);
 
-        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
-            'ds_categoria' => 'Cursos'
-        ]);
-
-        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
-            'ds_categoria' => 'Direitos'
-        ]);
-
-        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
-            'ds_categoria' => 'EaD'
-        ]);
-
-        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
-            'ds_categoria' => 'Educação Básica'
-        ]);
-
-        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
-            'ds_categoria' => 'Ensino Superior'
-        ]);
-
-        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
-            'ds_categoria' => 'Eventos'
-        ]);
-
-        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
-            'ds_categoria' => 'Geral'
-        ]);
-
-        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
-            'ds_categoria' => 'Mackenzie'
-        ]);
-
-        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
-            'ds_categoria' => 'Pós-graduação'
-        ]);
-
-        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
-            'ds_categoria' => 'Sesi/Senai'
-        ]);
-
-        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
-            'ds_categoria' => 'Uniban'
-        ]);
-
-        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
-            'ds_categoria' => 'Voz do Professor'
-        ]);
+//        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
+//            'ds_categoria' => 'Cursos'
+//        ]);
+//
+//        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
+//            'ds_categoria' => 'Direitos'
+//        ]);
+//
+//        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
+//            'ds_categoria' => 'EaD'
+//        ]);
+//
+//        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
+//            'ds_categoria' => 'Educação Básica'
+//        ]);
+//
+//        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
+//            'ds_categoria' => 'Ensino Superior'
+//        ]);
+//
+//        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
+//            'ds_categoria' => 'Eventos'
+//        ]);
+//
+//        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
+//            'ds_categoria' => 'Geral'
+//        ]);
+//
+//        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
+//            'ds_categoria' => 'Mackenzie'
+//        ]);
+//
+//        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
+//            'ds_categoria' => 'Pós-graduação'
+//        ]);
+//
+//        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
+//            'ds_categoria' => 'Sesi/Senai'
+//        ]);
+//
+//        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
+//            'ds_categoria' => 'Uniban'
+//        ]);
+//
+//        factory(\WebsiteAdmin\Models\NoticiasCategoria::class)->create([
+//            'ds_categoria' => 'Voz do Professor'
+//        ]);
     }
 }

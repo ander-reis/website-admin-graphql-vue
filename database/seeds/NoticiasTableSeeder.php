@@ -14,7 +14,7 @@ class NoticiasTableSeeder extends Seeder
     public function run()
     {
         $noticiaCategoriaId = NoticiasCategoria::all();
-        $noticias = factory(Noticias::class, 20)->make();
+        $noticias = factory(Noticias::class, 5)->make();
 
         $noticias->each(function(Noticias $model) use($noticiaCategoriaId){
             $id = $noticiaCategoriaId->random()->id;

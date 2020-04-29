@@ -46,12 +46,13 @@ class DeleteNoticiaCategoriaMutation extends Mutation
         $select = $fields->getSelect();
         $with = $fields->getRelations();
 
-        $result = NoticiasCategoria::destroy($args['id']);
+        $categoria = NoticiasCategoria::destroy($args['id']);
 
-        if(!$result) {
+
+        if(!$categoria) {
             throw new Error('id não encontrado');
         }
 
-        return $result;
+        return $categoria;
     }
 }

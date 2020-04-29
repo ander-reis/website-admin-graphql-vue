@@ -24,6 +24,17 @@ class NoticiasQuery extends Query
         return Type::listOf(GraphQL::type('NoticiasType'));
     }
 
+    public function authorize($root, array $args, $ctx, ResolveInfo $resolveInfo = null, Closure $getSelectFields = null): bool
+    {
+        $user = \JWTAuth::parseToken()->toUser();
+        return $user ? true : false;
+    }
+
+    public function getAuthorizationMessage(): string
+    {
+        return 'You are not authorized to perform this action';
+    }
+
     public function args(): array
     {
         return [

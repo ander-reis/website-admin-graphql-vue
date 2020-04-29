@@ -1,0 +1,6 @@
+mutation CreateNoticiaCategoria ($ds_categoria: String!) {
+    create_categoria (ds_categoria: $ds_categoria) {
+        id
+        ds_categoria
+    }
+}

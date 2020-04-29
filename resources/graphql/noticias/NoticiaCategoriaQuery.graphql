@@ -1,0 +1,6 @@
+query NoticiaCategoria ($id: ID) {
+    noticia_categoria (id: $id) {
+        id
+        ds_categoria
+    }
+}

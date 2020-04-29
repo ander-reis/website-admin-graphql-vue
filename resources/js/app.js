@@ -1,1 +1,47 @@
-require('./bootstrap');
+import vuetify from '../plugins/vuetify' // path to vuetify expor
+import Router from '../router/router';
+import apolloProvider from '../plugins/apollo';
+import store from "./store";
+
+import './../plugins/vuelidate';
+
+import { errorHandler } from './utils'
+
+window.Vue = require('vue');
+
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+// require('./bootstrap');
+
+/**
+ * The following block of code may be used to automatically register your
+ * Vue components. It will recursively scan this directory for the Vue
+ * components and automatically register them with their "basename".
+ *
+ * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ */
+
+const files = require.context('./', true, /\.vue$/i)
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('test-component', require('./components/TestComponent.vue'));
+
+/**
+ * Next, we will create a fresh Vue application instance and attach it to
+ * the page. Then, you may begin adding components to this application
+ * or customize the JavaScript scaffolding to fit your unique needs.
+ */
+
+Vue.config.errorHandler = errorHandler
+
+const app = new Vue({
+    el: '#app',
+    router: Router,
+    apolloProvider,
+    vuetify,
+    store,
+});

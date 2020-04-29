@@ -46,12 +46,15 @@ class UpdateNoticiaCategoriaMutation extends Mutation
         $select = $fields->getSelect();
         $with = $fields->getRelations();
 
-        $result = NoticiasCategoria::where('id', $args['id'])->update(['ds_categoria' => $args['ds_categoria']]);
+        $categoria = NoticiasCategoria::findOrFail($args['id']);
 
-        if(!$result) {
+        if(!$categoria) {
             throw new Error('recurso não encontrado / alterado');
         }
 
-        return ['id' => $args['id'], 'ds_categoria' => $args['ds_categoria']];
+        $categoria->fill($args);
+        $categoria->save();
+
+        return $categoria;
     }
 }

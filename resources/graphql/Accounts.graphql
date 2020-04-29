@@ -1,0 +1,7 @@
+query Accounts {
+    accounts {
+        id
+        description
+        created_at
+    }
+}

@@ -22,7 +22,7 @@ class Date extends ScalarType implements TypeConvertible
     /**
      * @var string
      */
-    public $description = 'formata Data e.g. 1900-01-01 00:00:00.000';
+    public $description = 'formata Data e.g. 01/01/1900 00:00';
 
     /**
      * Serializes an internal value to include in a response.
@@ -35,9 +35,7 @@ class Date extends ScalarType implements TypeConvertible
      */
     public function serialize($value)
     {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
-//        return Carbon::parse($value)->format('d/m/Y H:i:s');
-//        return Carbon::createFromFormat('d/m/Y H:i:s');
+        return Carbon::parse($value)->format('d/m/Y H:i');
     }
 
     /**
@@ -53,9 +51,7 @@ class Date extends ScalarType implements TypeConvertible
      */
     public function parseValue($value)
     {
-        return Carbon::parse($value)->format('Y-m-d H:i:s');
-//        return Carbon::parse($value)->format('d/m/Y H:i:s');
-//        return Carbon::createFromFormat('d/m/Y H:i:s');
+        return Carbon::parse($value)->format('d/m/Y H:i');
     }
 
     /**
@@ -72,9 +68,7 @@ class Date extends ScalarType implements TypeConvertible
      */
     public function parseLiteral($valueNode, ?array $variables = null)
     {
-        return Carbon::parse($valueNode->value)->format('Y-m-d H:i:s');
-//        return Carbon::parse($valueNode->value)->format('Y/m/d H:i:s');
-//        return Carbon::createFromFormat('d/m/Y H:i:s');
+        return Carbon::createFromFormat('d/m/Y H:i', $valueNode->value);
     }
 
     public function toType(): Type

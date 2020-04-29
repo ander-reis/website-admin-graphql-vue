@@ -29,8 +29,8 @@ class FormattableDate extends Field
         return [
             'format' => [
                 'type' => Type::string(),
-                'defaultValue' => 'd/m/Y H:i:s',
-                'description' => 'Defaults to Y-m-d H:i:s',
+                'defaultValue' => 'd/m/Y H:i',
+                'description' => 'Defaults to Y-m-d H:i',
             ],
             'relative' => [
                 'type' => Type::boolean(),

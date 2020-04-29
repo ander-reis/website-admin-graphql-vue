@@ -11,6 +11,21 @@
 |
 */
 
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+//Auth::routes();
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
+
+Route::get('{any}', function () {
+    return view('layouts.app');
+})->where('any', '.*');
+
+//Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('/noticias', 'NoticiaController@index')->name('noticias');
+//Route::get('/noticias/{id}/editar', 'NoticiaController@edit')->name('noticias.edit');

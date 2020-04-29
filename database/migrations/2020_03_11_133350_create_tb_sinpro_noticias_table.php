@@ -18,9 +18,11 @@ class CreateTbSinproNoticiasTable extends Migration
             $table->bigIncrements('id')->unsigned()->index();
             $table->integer('id_noticia')->default(0);
             $table->bigInteger('id_categoria')->unsigned()->default(0);
+
             $table->dateTime('dt_noticia', 3)->default(\Carbon\Carbon::now());
-            $table->dateTime('dt_cadastro')->default(\Carbon\Carbon::now());
+            $table->dateTime('dt_cadastro', 3)->default(\Carbon\Carbon::now());
             $table->dateTime('dt_alteracao', 3)->default(\Carbon\Carbon::now());
+
             $table->dateTime('dt_expira', 3)->default('1900-01-01');
             $table->char('fl_exibir_destaque', 1)->default('S');
             $table->string('ds_resumo', 80)->default('');

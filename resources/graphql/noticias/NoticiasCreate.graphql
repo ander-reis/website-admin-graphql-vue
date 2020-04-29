@@ -1,0 +1,33 @@
+mutation CreateNoticia (
+    $ds_resumo: String!,
+    $ds_texto: String!,
+    $ds_palavra_chave: [String],
+    $ds_social: String,
+    $fl_status: Int!,
+    $dt_noticia: String,
+    $id_categoria: ID!
+    ) {
+    create_noticia (
+        ds_resumo: $ds_resumo,
+        ds_texto: $ds_texto,
+        ds_palavra_chave: $ds_palavra_chave,
+        ds_social: $ds_social,
+        fl_status: $fl_status,
+        dt_noticia: $dt_noticia,
+        id_categoria: $id_categoria)
+    {
+        id
+        ds_resumo
+        ds_texto
+        ds_palavra_chave
+        ds_social
+        fl_status
+        dt_noticia
+        dt_cadastro
+        dt_alteracao
+        categoria {
+            id
+            ds_categoria
+        }
+    }
+}
