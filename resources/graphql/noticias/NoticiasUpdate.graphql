@@ -1,0 +1,39 @@
+mutation UpdateNoticia (
+    $id: ID!,
+    $ds_resumo: String!,
+    $ds_texto: String!,
+    $ds_palavra_chave: [String],
+    $ds_social: String,
+    $fl_status: Int!,
+    $ds_data: String!,
+    $ds_hora: String!,
+    $id_categoria: ID!
+) {
+    update_noticia (
+        id: $id,
+        ds_resumo: $ds_resumo,
+        ds_texto: $ds_texto,
+        ds_palavra_chave: $ds_palavra_chave,
+        ds_social: $ds_social,
+        fl_status: $fl_status,
+        ds_data: $ds_data,
+        ds_hora: $ds_hora,
+        id_categoria: $id_categoria)
+    {
+        id
+        ds_resumo
+        ds_texto
+        ds_palavra_chave
+        ds_social
+        fl_status
+        dt_noticia
+        dt_cadastro
+        dt_alteracao
+        ds_data
+        ds_hora
+        categoria {
+            id
+            ds_categoria
+        }
+    }
+}

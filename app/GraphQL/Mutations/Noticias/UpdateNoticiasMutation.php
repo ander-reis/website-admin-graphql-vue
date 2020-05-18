@@ -33,12 +33,12 @@ class UpdateNoticiasMutation extends Mutation
                 'rules' => ['required', 'numeric']
             ],
             'ds_resumo' => [
-                'type' => Type::string(),
+                'type' => Type::nonNull(Type::string()),
                 'description' => 'resumo da notícia',
                 'rules' => ['required', 'min:3', 'max:80']
             ],
             'ds_texto' => [
-                'type' => Type::string(),
+                'type' => Type::nonNull(Type::string()),
                 'description' => 'texto da notícia',
                 'rules' => ['required']
             ],
@@ -52,7 +52,7 @@ class UpdateNoticiasMutation extends Mutation
                 'description' => 'link da rede social da notícia'
             ],
             'fl_status' => [
-                'type' => Type::int(),
+                'type' => Type::nonNull(Type::int()),
                 'description' => 'status da notícia',
                 'rules' => ['required']
             ],
@@ -61,8 +61,18 @@ class UpdateNoticiasMutation extends Mutation
                 'description' => 'data da notícia',
                 'rule' => ['required']
             ],
+            'ds_data' => [
+                'type' => Type::nonNull(Type::string()),
+                'description' => 'data da notícia, **OBS: Y-m-d',
+                'rule' => ['required']
+            ],
+            'ds_hora' => [
+                'type' => Type::nonNull(Type::string()),
+                'description' => 'hora da notícia, **OBS: H:i',
+                'rule' => ['required']
+            ],
             'id_categoria' => [
-                'type' => Type::id(),
+                'type' => Type::nonNull(Type::id()),
                 'description' => 'id categoria'
             ],
         ];
@@ -73,6 +83,9 @@ class UpdateNoticiasMutation extends Mutation
         $fields = $getSelectFields();
         $select = $fields->getSelect();
         $with = $fields->getRelations();
+
+        $args['dt_noticia'] = $args['ds_data'] . ' ' . $args['ds_hora'];
+        unset($args['ds_data'], $args['ds_hora']);
 
         $args['ds_palavra_chave'] = Noticias::convertDsPalavraChave($args['ds_palavra_chave']);
 

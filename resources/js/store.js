@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-    title: undefined
+    title: undefined,
 }
 
 const types = {
@@ -23,9 +23,8 @@ const actions = {
     }
 }
 
-
 export default new Vuex.Store({
     state,
     mutations,
-    actions
+    actions,
 })

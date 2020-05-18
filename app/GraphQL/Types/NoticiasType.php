@@ -50,15 +50,20 @@ class NoticiasType extends GraphQLType
                 'type' => Type::string(),
                 'description' => 'status da notícia para o app'
             ],
-
             'dt_noticia' => [
                 'type' => \GraphQL::type('date'),
                 'description' => 'data noticia'
             ],
-
+            'ds_data' => [
+                'type' => Type::string(),
+                'description' => 'data notícia'
+            ],
+            'ds_hora' => [
+                'type' => Type::string(),
+                'description' => 'hora notícia'
+            ],
             'dt_cadastro' => new FormattableDate,
             'dt_alteracao' => new FormattableDate,
-
             'categoria' => [
                 'type' => GraphQL::type('NoticiasCategoriaType'),
                 'description' => 'id da categoria'

@@ -96,6 +96,28 @@ class Noticias extends Model
     }
 
     /**
+     * configura ds_data
+     *
+     * @return mixed
+     */
+    public function getDsDataAttribute()
+    {
+        $data = explode(' ', $this->dt_noticia)[0];
+        return $this->attributes['ds_data'] = $data;
+    }
+
+    /**
+     * configura ds_hora
+     *
+     * @return false|string
+     */
+    public function getDsHoraAttribute()
+    {
+        $hora = explode(' ', $this->dt_noticia)[1];
+        return $this->attributes['ds_hora'] = substr($hora, 0, 5);
+    }
+
+    /**
      * Relacionamento noticias para categorias, um para um
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

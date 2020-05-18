@@ -1,0 +1,3 @@
+mutation DeleteNoticiaCategoria ($id: ID!){
+    delete_categoria (id: $id)
+}

@@ -9,6 +9,8 @@ query Noticias ($id: ID) {
         dt_noticia
         dt_cadastro
         dt_alteracao
+        ds_data
+        ds_hora
         categoria {
             id
             ds_categoria

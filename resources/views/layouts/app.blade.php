@@ -20,15 +20,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-{{--    <div id="app">--}}
-{{--        <main class="py-4">--}}
-{{--            @yield('content')--}}
-                <v-app id="app">
-                    <v-content>
-                        <router-view></router-view>
-                    </v-content>
-                </v-app>
-{{--        </main>--}}
-{{--    </div>--}}
+    <v-app id="app">
+        <v-content>
+            <router-view></router-view>
+        </v-content>
+    </v-app>
 </body>
 </html>

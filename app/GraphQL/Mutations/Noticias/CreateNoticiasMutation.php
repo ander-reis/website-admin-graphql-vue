@@ -12,6 +12,7 @@ use Rebing\GraphQL\Support\Mutation;
 use Rebing\GraphQL\Support\SelectFields;
 use WebsiteAdmin\GraphQL\Fields\FormattableDate;
 use WebsiteAdmin\Models\Noticias;
+use Helper;
 
 class CreateNoticiasMutation extends Mutation
 {
@@ -52,13 +53,16 @@ class CreateNoticiasMutation extends Mutation
                 'description' => 'status da notícia',
                 'rules' => ['required']
             ],
-
-            'dt_noticia' => [
-                'type' => Type::string(),
-                'description' => 'data da notícia, **OBS: dt_noticia = Y-m-d H:i',
+            'ds_data' => [
+                'type' => Type::nonNull(Type::string()),
+                'description' => 'data da notícia, **OBS: Y-m-d',
                 'rule' => ['required']
             ],
-
+            'ds_hora' => [
+                'type' => Type::nonNull(Type::string()),
+                'description' => 'hora da notícia, **OBS: H:i',
+                'rule' => ['required']
+            ],
             'id_categoria' => [
                 'type' => Type::nonNull(Type::id()),
                 'description' => 'id categoria'
@@ -71,6 +75,9 @@ class CreateNoticiasMutation extends Mutation
         $fields = $getSelectFields();
         $select = $fields->getSelect();
         $with = $fields->getRelations();
+
+        $args['dt_noticia'] = $args['ds_data'] . ' ' . $args['ds_hora'];
+        unset($args['ds_data'], $args['ds_hora']);
 
         $args['ds_palavra_chave'] = Noticias::convertDsPalavraChave($args['ds_palavra_chave']);
 

@@ -10,6 +10,8 @@
     "watch-poll": "npm run watch -- --watch-poll"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^19.0.0",
+    "@ckeditor/ckeditor5-vue": "^1.0.1",
     "apollo-boost": "^0.4.7",
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.3",

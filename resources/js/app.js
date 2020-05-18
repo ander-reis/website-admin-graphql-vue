@@ -4,6 +4,7 @@ import apolloProvider from '../plugins/apollo';
 import store from "./store";
 
 import './../plugins/vuelidate';
+import './../plugins/ckeditor';
 
 import { errorHandler } from './utils'
 

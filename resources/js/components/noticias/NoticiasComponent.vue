@@ -25,13 +25,15 @@
                 </v-chip>
             </template>
             <template v-slot:item.edit="{ item }">
-                <v-btn icon :to="(item.fl_status !== 0) ? {name: 'noticias.update', params: {id: item.id}} : ''" :color="getColor(item.fl_status)" :disabled="item.fl_status === 0 ? true : false">
-                    <v-icon>{{ getIcon(item.fl_status, 'create', 'lock') }}</v-icon>
+<!--                <v-btn icon to="{name: 'noticias.update', params: {id: item.id}}" :color="getColor(1)">-->
+<!--                <router-link icon :to="{{name: 'noticias.update', params: {id: item.id}}}" :colo="getColor(1)"></router-link>-->
+                <v-btn icon @click="editItem(item)" :color="getColor(1)">
+                    <v-icon>create</v-icon>
                 </v-btn>
             </template>
             <template v-slot:item.show="{ item }">
-                <v-btn icon @click="showItem(item)" :color="getColor(item.fl_status)" :disabled="item.fl_status === 0 ? true : false">
-                    <v-icon>{{ getIcon(item.fl_status, 'visibility', 'visibility_off') }}</v-icon>
+                <v-btn icon @click="showItem(item)" :color="getColor(1)">
+                    <v-icon>visibility</v-icon>
                 </v-btn>
             </template>
         </v-data-table>
@@ -72,7 +74,7 @@
 </template>
 
 <script>
-    import {mapActions} from 'vuex'
+    import {mapActions, mapMutations} from 'vuex'
     import NoticiasService from './../../../services/noticias-service'
     export default {
         name: "Noticias",
@@ -115,7 +117,6 @@
                 try {
                     this.subscriptions.push(
                         NoticiasService.noticiasQuery().subscribe((data) => {
-                            console.log(data)
                             this.desserts = data;
                             this.loading = false;
                         }))
@@ -147,9 +148,6 @@
             },
             getDataFormatted(data) {
                 return data.slice(0, 11)
-            },
-            save(item) {
-                console.log(item)
             },
             editItem(item) {
                 return this.$router.push(`/noticias/${item.id}/editar`)
