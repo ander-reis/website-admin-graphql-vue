@@ -27,5 +27,5 @@ Route::get('{any}', function () {
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('/noticias', 'NoticiaController@index')->name('noticias');
+//Route::get('/admin/noticias', 'NoticiaController@index')->name('noticias');
 //Route::get('/noticias/{id}/editar', 'NoticiaController@edit')->name('noticias.edit');

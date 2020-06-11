@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
-        <router-view></router-view>
+        <h1>admin index</h1>
+{{--        <router-view></router-view>--}}
     </div>
 @endsection

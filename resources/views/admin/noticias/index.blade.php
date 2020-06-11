@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
-        <noticias-component></noticias-component>
+        <h1>Noticias index</h1>
+{{--        <noticias-component></noticias-component>--}}
     </div>
 @endsection

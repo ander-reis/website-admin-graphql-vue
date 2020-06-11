@@ -10,7 +10,7 @@ class NoticiaController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -20,7 +20,7 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-//        return view('admin.noticias.index');
+        return view('admin.noticias.index');
 //        return view('admin.index');
     }
 
